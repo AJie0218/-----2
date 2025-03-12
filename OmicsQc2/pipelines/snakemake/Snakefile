@@ -1,0 +1,94 @@
+"""
+Snakemake工作流定义
+职责：定义OmicsQc2项目的数据处理和模型运行流程
+"""
+
+# 配置
+configfile: "config/config.yaml"
+
+# 目标规则
+rule all:
+    input:
+        "outputs/processed_transcriptomics.csv",
+        "outputs/processed_proteomics.csv",
+        "outputs/processed_metabolomics.csv",
+        "outputs/integrated_omics.csv",
+        "outputs/pfba_results.csv",
+        "outputs/machine_learning_ready.csv"
+
+# 数据预处理规则
+rule preprocess_transcriptomics:
+    input:
+        "raw/transcriptome_sample.csv"
+    output:
+        "processed/transcriptomics.csv"
+    log:
+        "logs/preprocess_transcriptomics.log"
+    script:
+        "../../src/preprocessing/process_transcriptomics.py"
+
+rule preprocess_proteomics:
+    input:
+        "raw/proteomics_sample.csv"
+    output:
+        "processed/proteomics.csv"
+    log:
+        "logs/preprocess_proteomics.log"
+    script:
+        "../../src/preprocessing/process_proteomics.py"
+
+rule preprocess_metabolomics:
+    input:
+        "raw/metabolomics_sample.csv"
+    output:
+        "processed/metabolomics.csv"
+    log:
+        "logs/preprocess_metabolomics.log"
+    script:
+        "../../src/preprocessing/process_metabolomics.py"
+
+# 数据整合规则
+rule integrate_omics_data:
+    input:
+        transcriptomics="processed/transcriptomics.csv",
+        proteomics="processed/proteomics.csv",
+        metabolomics="processed/metabolomics.csv"
+    output:
+        "outputs/integrated_omics.csv"
+    log:
+        "logs/integrate_omics.log"
+    script:
+        "../../src/integration/integrate_omics.py"
+
+# 模型运行规则
+rule run_pfba_model:
+    input:
+        "outputs/integrated_omics.csv"
+    output:
+        "outputs/pfba_results.csv"
+    log:
+        "logs/run_pfba.log"
+    script:
+        "../../models/pfba/run_pfba.py"
+
+rule run_fva_model:
+    input:
+        "outputs/integrated_omics.csv"
+    output:
+        "outputs/fva_results.csv"
+    log:
+        "logs/run_fva.log"
+    script:
+        "../../models/fva/run_fva.py"
+
+# 机器学习准备规则
+rule prepare_ml_data:
+    input:
+        omics="outputs/integrated_omics.csv",
+        flux="outputs/pfba_results.csv"
+    output:
+        "outputs/machine_learning_ready.csv"
+    log:
+        "logs/prepare_ml_data.log"
+    script:
+        "../../models/ml/prepare_ml_data.py" 

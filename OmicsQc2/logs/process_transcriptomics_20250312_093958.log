@@ -1,0 +1,14 @@
+2025-03-12 09:39:58,896 - process_transcriptomics - INFO - 开始处理转录组数据
+2025-03-12 09:39:58,896 - process_transcriptomics - INFO - 从GSE63129收集数据，类型: geo
+2025-03-12 09:41:10,173 - process_transcriptomics - INFO - 成功读取数据: 4行 × 54674列
+2025-03-12 09:41:10,678 - process_transcriptomics - INFO - 数据处理完成，结果保存至: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\processed\geo_data.tsv
+2025-03-12 09:41:10,737 - process_transcriptomics - INFO - 
+数据预览:
+1007_s_at     1053_at     117_at       ...         AFFX-TrpnX-5_at  AFFX-TrpnX-M_at
+5.158509549  8.483561  10.492276       ...                2.466490         3.536160
+4.604470002  6.828852   9.367604       ...                2.582478         3.134211
+5.653857103  6.719489   7.866334       ...                2.741580         3.593898
+5.220377485  6.756242   7.309222       ...                2.639568         3.458844
+
+[4 rows x 54674 columns]
+2025-03-12 09:41:10,739 - process_transcriptomics - INFO - 转录组数据处理完成

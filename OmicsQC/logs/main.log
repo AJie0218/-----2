@@ -1,0 +1,32 @@
+2025-03-12 08:49:53,366 - INFO: ✅ 数据库初始化完成
+2025-03-12 08:49:53,367 - ERROR: ❌ 致命错误: 加载数据失败: 文件不存在: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\data\raw\transcriptome sample.csv
+Traceback (most recent call last):
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\src\data_loader.py", line 45, in load_transcriptome_data
+    raise FileNotFoundError(f"文件不存在: {path}")
+FileNotFoundError: 文件不存在: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\data\raw\transcriptome sample.csv
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\src\main.py", line 46, in main
+    raw_data = load_transcriptome_data(raw_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\src\data_loader.py", line 76, in load_transcriptome_data
+    raise RuntimeError(f"加载数据失败: {str(e)}") from e
+RuntimeError: 加载数据失败: 文件不存在: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\data\raw\transcriptome sample.csv
+2025-03-12 08:52:11,988 - INFO: ✅ 数据库初始化完成
+2025-03-12 08:52:11,996 - ERROR: ❌ 致命错误: 加载数据失败: 未检测到足够的样本列，匹配模式: (sample|condition|s)\d+
+Traceback (most recent call last):
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\src\data_loader.py", line 69, in load_transcriptome_data
+    raise ValueError(f"未检测到足够的样本列，匹配模式: {sample_col_pattern}")
+ValueError: 未检测到足够的样本列，匹配模式: (sample|condition|s)\d+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\src\main.py", line 46, in main
+    raw_data = load_transcriptome_data(raw_path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQC\src\data_loader.py", line 76, in load_transcriptome_data
+    raise RuntimeError(f"加载数据失败: {str(e)}") from e
+RuntimeError: 加载数据失败: 未检测到足够的样本列，匹配模式: (sample|condition|s)\d+

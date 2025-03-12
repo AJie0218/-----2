@@ -1,0 +1,51 @@
+# OmicsQc2全局配置文件
+
+# 数据路径配置
+paths:
+  raw_dir: "raw"
+  processed_dir: "processed"
+  output_dir: "outputs"
+  log_dir: "logs"
+  
+# 预处理配置
+preprocessing:
+  transcriptomics:
+    normalization: "TPM"  # TPM, FPKM, 或 Count
+    filter_low_expression: true
+    min_count: 10
+    
+  proteomics:
+    normalization: "log2"
+    missing_value_threshold: 0.3
+    
+  metabolomics:
+    normalization: "auto_scaling"
+    missing_value_threshold: 0.2
+    
+# 质量控制配置
+qc:
+  outlier_detection:
+    method: "zscore"
+    threshold: 3.0
+  
+  correlation:
+    method: "pearson"
+    
+# 模型配置
+models:
+  pfba:
+    model_path: "models/data/recon3d.xml"
+    objective_function: "biomass_reaction"
+    
+  fva:
+    fraction_of_optimum: 0.9
+    
+  ml:
+    model_type: "random_forest"
+    test_size: 0.2
+    random_state: 42
+    
+# 工作流配置
+workflow:
+  threads: 4
+  memory: "4GB" 
