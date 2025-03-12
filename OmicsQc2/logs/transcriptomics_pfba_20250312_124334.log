@@ -1,0 +1,17 @@
+2025-03-12 12:43:34,028 - transcriptomics_pfba - INFO - 开始转录组数据处理与pFBA分析
+2025-03-12 12:43:34,028 - transcriptomics_pfba - INFO - 从 raw/test_transcriptomics.csv 收集转录组数据，类型: auto
+2025-03-12 12:43:34,050 - transcriptomics_pfba - INFO - 成功收集数据: 15行 × 5列
+2025-03-12 12:43:34,050 - transcriptomics_pfba - INFO - 进行数据标准化
+2025-03-12 12:43:34,062 - transcriptomics_pfba - INFO - 过滤低表达基因，阈值: 5.0
+2025-03-12 12:43:34,062 - transcriptomics_pfba - INFO - 过滤后剩余 0 个基因
+2025-03-12 12:43:34,064 - transcriptomics_pfba - INFO - 预处理完成，转录组数据保存到: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\processed\test_pfba_processed.tsv
+2025-03-12 12:43:34,065 - transcriptomics_pfba - INFO - 将转录组数据格式化为pFBA参数
+2025-03-12 12:43:34,066 - transcriptomics_pfba - ERROR - 处理过程中发生错误: division by zero
+Traceback (most recent call last):
+  File "src/examples/process_transcriptomics_for_pfba.py", line 125, in main
+    output_name=f"{args.output_prefix}_params.json"
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\models\pfba_formatter.py", line 160, in format_all
+    growth_rate=growth_rate
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\models\pfba_formatter.py", line 56, in format_transcriptomics
+    growth_rate = len(expressed_genes) / len(gene_expression)
+ZeroDivisionError: division by zero

@@ -18,8 +18,8 @@ class Preprocessor:
         返回:
             标准化后的转录组数据
         """
-        # TODO: 实现转录组数据标准化逻辑
-        pass
+        # 使用Z-score标准化
+        return (data - data.mean()) / data.std()
         
     def normalize_proteomics(self, data):
         """
@@ -31,8 +31,8 @@ class Preprocessor:
         返回:
             标准化后的蛋白组数据
         """
-        # TODO: 实现蛋白组数据标准化逻辑
-        pass
+        # 使用Min-Max标准化
+        return (data - data.min()) / (data.max() - data.min())
         
     def normalize_metabolomics(self, data):
         """
@@ -44,8 +44,8 @@ class Preprocessor:
         返回:
             标准化后的代谢组数据
         """
-        # TODO: 实现代谢组数据标准化逻辑
-        pass
+        # 使用Z-score标准化
+        return (data - data.mean()) / data.std()
         
     def filter_low_quality(self, data, threshold):
         """
@@ -58,8 +58,8 @@ class Preprocessor:
         返回:
             过滤后的数据
         """
-        # TODO: 实现低质量数据过滤逻辑
-        pass
+        # 过滤低于阈值的行
+        return data[data.mean(axis=1) > threshold]
         
     def impute_missing_values(self, data):
         """
@@ -71,8 +71,8 @@ class Preprocessor:
         返回:
             填充后的数据
         """
-        # TODO: 实现缺失值填充逻辑
-        pass
+        # 使用均值填充缺失值
+        return data.fillna(data.mean())
         
     def merge_omics_data(self, transcriptomics, proteomics, metabolomics):
         """
@@ -86,5 +86,5 @@ class Preprocessor:
         返回:
             整合后的多组学数据
         """
-        # TODO: 实现多组学数据整合逻辑
-        pass 
+        # 使用基因ID作为索引进行合并
+        return transcriptomics.join([proteomics, metabolomics], how='outer') 

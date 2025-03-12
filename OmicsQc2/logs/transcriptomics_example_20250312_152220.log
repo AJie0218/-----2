@@ -1,0 +1,13 @@
+2025-03-12 15:22:20,310 - transcriptomics_example - INFO - 开始转录组数据收集与预处理
+2025-03-12 15:22:20,310 - transcriptomics_example - INFO - 从 test 收集转录组数据，类型: geo
+2025-03-12 15:22:20,320 - transcriptomics_example - ERROR - 数据处理过程中发生错误: [WinError 3] 系统找不到指定的路径。: ''
+Traceback (most recent call last):
+  File "OmicsQc2/src/preprocessing/process_transcriptomics_example.py", line 70, in main
+    source_type=args.source_type
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 97, in collect_transcriptomics
+    self._save_data(data, output_file)
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 523, in _save_data
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+  File "D:\Anaconda\lib\os.py", line 221, in makedirs
+    mkdir(name, mode)
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: ''

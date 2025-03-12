@@ -1,0 +1,3 @@
+2025-03-12 11:16:03,019 - omicsqc2 - INFO - OmicsQc2 启动
+2025-03-12 11:16:03,020 - omicsqc2 - INFO - 使用配置文件: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\config\config.yaml
+2025-03-12 11:16:03,020 - omicsqc2 - ERROR - 配置文件 D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\config\config.yaml 不存在，程序退出

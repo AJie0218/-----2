@@ -1,0 +1,17 @@
+2025-03-12 15:16:55,646 - transcriptomics_example - INFO - 开始转录组数据收集与预处理
+2025-03-12 15:16:55,646 - transcriptomics_example - INFO - 从 GSE278469 收集转录组数据，类型: geo
+2025-03-12 15:17:01,695 - transcriptomics_example - ERROR - 数据处理过程中发生错误: Can only use .str accessor with string values (i.e. inferred_type is 'string', 'unicode' or 'mixed')
+Traceback (most recent call last):
+  File "process_transcriptomics_example.py", line 70, in main
+    source_type=args.source_type
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 66, in collect_transcriptomics
+    data = self._collect_from_geo(source_path)
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 179, in _collect_from_geo
+    df = df[~df.index.str.startswith('!')]
+  File "D:\Anaconda\lib\site-packages\pandas\core\accessor.py", line 133, in __get__
+    accessor_obj = self._accessor(obj)
+  File "D:\Anaconda\lib\site-packages\pandas\core\strings.py", line 1895, in __init__
+    self._validate(data)
+  File "D:\Anaconda\lib\site-packages\pandas\core\strings.py", line 1933, in _validate
+    raise AttributeError(message)
+AttributeError: Can only use .str accessor with string values (i.e. inferred_type is 'string', 'unicode' or 'mixed')

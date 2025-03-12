@@ -1,0 +1,15 @@
+2025-03-12 15:18:28,668 - transcriptomics_example - INFO - 开始转录组数据收集与预处理
+2025-03-12 15:18:28,668 - transcriptomics_example - INFO - 从 GSE278469 收集转录组数据，类型: geo
+2025-03-12 15:18:32,923 - transcriptomics_example - ERROR - 数据处理过程中发生错误: index 0 is out of bounds for axis 0 with size 0
+Traceback (most recent call last):
+  File "OmicsQc2/src/preprocessing/process_transcriptomics_example.py", line 70, in main
+    source_type=args.source_type
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 73, in collect_transcriptomics
+    data = self._clean_transcriptomics_data(data)
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 319, in _clean_transcriptomics_data
+    gene_id_col = self._find_gene_id_column(df)
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 363, in _find_gene_id_column
+    if df.columns[0] == 'Unnamed: 0':
+  File "D:\Anaconda\lib\site-packages\pandas\core\indexes\base.py", line 2084, in __getitem__
+    return getitem(key)
+IndexError: index 0 is out of bounds for axis 0 with size 0

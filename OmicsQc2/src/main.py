@@ -12,12 +12,25 @@ import argparse
 from pathlib import Path
 
 # 添加项目根目录到 Python 路径
-project_root = Path(__file__).parent.parent.resolve()
+script_path = Path(__file__).resolve()
+print(f"脚本路径: {script_path}")
+
+# 确保使用正确的项目根目录
+if script_path.parent.name == 'src' and script_path.parent.parent.name == 'OmicsQc2':
+    project_root = script_path.parent.parent
+else:
+    # 向上查找直到找到OmicsQc2目录
+    current_path = script_path.parent
+    while current_path.name != 'OmicsQc2' and current_path != current_path.parent:
+        current_path = current_path.parent
+    project_root = current_path
+
+print(f"项目根目录: {project_root}")
 sys.path.append(str(project_root))
 
 # 导入项目模块
-from src.utils.logger import Logger
-from src.utils.config_manager import ConfigManager
+from utils.logger import Logger
+from utils.config_manager import ConfigManager
 
 def setup_logging():
     """设置日志系统"""
@@ -80,11 +93,33 @@ def main():
     logger.info("OmicsQc2 启动")
     
     # 加载配置
-    config_path = os.path.join(project_root, args.config)
-    config_manager = ConfigManager(config_dir=os.path.dirname(config_path))
-    config = config_manager.load_yaml(os.path.basename(config_path))
+    # 直接使用项目根目录下的config/config.yaml
+    config_path = os.path.join(project_root, 'config', 'config.yaml')
+    print(f"尝试加载配置文件: {config_path}")
+    logger.info(f"尝试加载配置文件: {config_path}")
     
-    logger.info(f"加载配置文件: {config_path}")
+    # 确保配置文件存在
+    if not os.path.exists(config_path):
+        # 尝试其他可能的路径
+        alt_config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'config', 'config.yaml'))
+        print(f"配置文件不存在，尝试备选路径: {alt_config_path}")
+        logger.warning(f"配置文件 {config_path} 不存在，尝试备选路径: {alt_config_path}")
+        
+        if os.path.exists(alt_config_path):
+            config_path = alt_config_path
+        else:
+            logger.error(f"配置文件不存在，程序退出")
+            sys.exit(1)
+    
+    logger.info(f"使用配置文件: {config_path}")    
+    try:
+        # 直接使用绝对路径加载配置文件
+        config_manager = ConfigManager()
+        config = config_manager.load_yaml(config_path)
+        logger.info(f"成功加载配置文件: {config_path}")
+    except Exception as e:
+        logger.error(f"加载配置文件失败: {str(e)}")
+        sys.exit(1)
     
     # 根据模式执行相应功能
     if args.mode == 'preprocess':

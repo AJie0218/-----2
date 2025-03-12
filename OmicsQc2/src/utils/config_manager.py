@@ -28,7 +28,12 @@ class ConfigManager:
         返回:
             配置字典
         """
-        file_path = os.path.join(self.config_dir, config_file)
+        # 检查config_file是否为绝对路径
+        if os.path.isabs(config_file):
+            file_path = config_file
+        else:
+            file_path = os.path.join(self.config_dir, config_file)
+        
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 config = yaml.safe_load(f)

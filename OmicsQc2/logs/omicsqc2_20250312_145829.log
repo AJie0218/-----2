@@ -1,0 +1,13 @@
+2025-03-12 14:58:29,543 - omicsqc2 - INFO - OmicsQc2 启动
+2025-03-12 14:58:29,543 - omicsqc2 - INFO - 尝试加载配置文件: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\config\config.yaml
+2025-03-12 14:58:29,544 - omicsqc2 - INFO - 使用配置文件: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\config\config.yaml
+2025-03-12 14:58:29,548 - omicsqc2 - INFO - 成功加载配置文件: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\config\config.yaml
+2025-03-12 14:58:29,548 - omicsqc2 - INFO - 开始运行完整流程
+2025-03-12 14:58:29,549 - omicsqc2 - INFO - 开始数据预处理
+2025-03-12 14:58:29,549 - omicsqc2 - INFO - 数据预处理完成
+2025-03-12 14:58:29,550 - omicsqc2 - INFO - 开始质量控制
+2025-03-12 14:58:29,550 - omicsqc2 - INFO - 质量控制完成
+2025-03-12 14:58:29,550 - omicsqc2 - INFO - 开始模型分析
+2025-03-12 14:58:29,551 - omicsqc2 - INFO - 模型分析完成
+2025-03-12 14:58:29,551 - omicsqc2 - INFO - 完整流程运行完成
+2025-03-12 14:58:29,551 - omicsqc2 - INFO - OmicsQc2 执行完成

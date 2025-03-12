@@ -1,0 +1,17 @@
+2025-03-12 12:45:10,131 - transcriptomics_pfba - INFO - 开始转录组数据处理与pFBA分析
+2025-03-12 12:45:10,132 - transcriptomics_pfba - INFO - 从 OmicsQc2/raw/test_transcriptomics.csv 收集转录组数据，类型: auto
+2025-03-12 12:45:10,159 - transcriptomics_pfba - INFO - 成功收集数据: 15行 × 5列
+2025-03-12 12:45:10,160 - transcriptomics_pfba - INFO - 进行数据标准化
+2025-03-12 12:45:10,171 - transcriptomics_pfba - INFO - 过滤低表达基因，阈值: 1.0
+2025-03-12 12:45:10,172 - transcriptomics_pfba - INFO - 过滤后剩余 3 个基因
+2025-03-12 12:45:10,174 - transcriptomics_pfba - INFO - 预处理完成，转录组数据保存到: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\processed\test_pfba_processed.tsv
+2025-03-12 12:45:10,175 - transcriptomics_pfba - INFO - 将转录组数据格式化为pFBA参数
+2025-03-12 12:45:10,177 - transcriptomics_pfba - INFO - pFBA参数已保存至: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\models\pfba\data\test_pfba_params.json
+2025-03-12 12:45:10,177 - transcriptomics_pfba - INFO - 运行pFBA模型
+2025-03-12 12:45:10,177 - transcriptomics_pfba - ERROR - 处理过程中发生错误: module 'numpy.random' has no attribute 'default_rng'
+Traceback (most recent call last):
+  File "OmicsQc2/src/examples/process_transcriptomics_for_pfba.py", line 147, in main
+    results = model.run_simulation()
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\models\pfba\pfba_model.py", line 227, in run_simulation
+    rng = np.random.default_rng(42)  # 使用固定种子确保可复现
+AttributeError: module 'numpy.random' has no attribute 'default_rng'

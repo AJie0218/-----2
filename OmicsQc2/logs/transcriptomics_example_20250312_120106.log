@@ -1,0 +1,29 @@
+2025-03-12 12:01:06,690 - transcriptomics_example - INFO - 开始转录组数据收集与预处理
+2025-03-12 12:01:06,690 - transcriptomics_example - INFO - 从 GSE63129 收集转录组数据，类型: geo
+2025-03-12 12:02:18,061 - transcriptomics_example - INFO - 成功收集数据: 4行 × 54674列
+2025-03-12 12:02:18,140 - transcriptomics_example - INFO - 数据预览:
+1007_s_at     1053_at     117_at       ...         AFFX-TrpnX-5_at  AFFX-TrpnX-M_at
+5.158509549  8.483561  10.492276       ...                2.466490         3.536160
+4.604470002  6.828852   9.367604       ...                2.582478         3.134211
+5.653857103  6.719489   7.866334       ...                2.741580         3.593898
+5.220377485  6.756242   7.309222       ...                2.639568         3.458844
+
+[4 rows x 54674 columns]
+2025-03-12 12:02:18,143 - transcriptomics_example - INFO - 填充缺失值
+2025-03-12 12:02:25,694 - transcriptomics_example - INFO - 进行数据标准化
+2025-03-12 12:02:25,853 - transcriptomics_example - INFO - 标准化完成
+2025-03-12 12:02:26,507 - transcriptomics_example - INFO - 预处理完成，结果保存到: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\processed\processed_transcriptomics.tsv
+2025-03-12 12:02:26,580 - transcriptomics_example - INFO - 处理后数据预览:
+1007_s_at     1053_at    117_at       ...         AFFX-TrpnX-5_at  AFFX-TrpnX-M_at
+5.158509549  1.497899  1.198709       ...               -1.228895         0.513289
+4.604470002 -0.428676  0.420965       ...               -0.218271        -1.444504
+5.653857103 -0.556007 -0.617207       ...                1.168009         0.794515
+5.220377485 -0.513216 -1.002467       ...                0.279158         0.136700
+
+[4 rows x 54674 columns]
+2025-03-12 12:02:26,581 - transcriptomics_example - INFO - 数据处理统计:
+2025-03-12 12:02:26,581 - transcriptomics_example - INFO -   原始数据大小: (4, 54674)
+2025-03-12 12:02:26,581 - transcriptomics_example - INFO -   处理后数据大小: (4, 54674)
+2025-03-12 12:02:26,582 - transcriptomics_example - INFO -   缺失值填充: 已完成
+2025-03-12 12:02:26,582 - transcriptomics_example - INFO -   数据标准化: 已完成
+2025-03-12 12:02:26,582 - transcriptomics_example - INFO - 转录组数据收集与预处理流程完成
