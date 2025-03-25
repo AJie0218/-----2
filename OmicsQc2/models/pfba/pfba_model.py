@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import logging
 from pathlib import Path
+import argparse
 
 # 如果安装了COBRApy，可以使用它来进行真实的pFBA分析
 try:
@@ -326,4 +327,19 @@ class PFBAModel:
         
         logger.info(f"已生成虚拟数据: {df.shape[0]} 个基因, {df.shape[1]} 个样本")
         
-        return df 
+        return df
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='运行pFBA模型')
+    parser.add_argument('--input', type=str, required=True, help='输入数据文件路径')
+    parser.add_argument('--output', type=str, required=True, help='输出结果文件路径')
+    return parser.parse_args()
+
+def main():
+    args = parse_args()
+    # 在这里使用args.input和args.output进行后续处理
+    print(f"输入文件: {args.input}")
+    print(f"输出文件: {args.output}")
+
+if __name__ == "__main__":
+    main() 

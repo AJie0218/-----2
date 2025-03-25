@@ -1,6 +1,8 @@
 """
 转录组数据格式化为pFBA参数
 职责：将转录组数据转换为pFBA模型所需的参数格式
+
+python OmicsQc2/src/preprocessing/format_pfba_params.py --input OmicsQc2/processed/test_output.tsv --output OmicsQc2/models/pfba/data/test_pfba_params.json --threshold 0.5
 """
 
 import os
@@ -89,6 +91,15 @@ def format_pfba_parameters(expression_data: pd.DataFrame,
 
 if __name__ == "__main__":
     import argparse
+    import sys
+    
+    # 设置日志
+    logging.basicConfig(level=logging.INFO, 
+                        format='%(levelname)s:%(name)s:%(message)s')
+    
+    # 获取脚本路径和项目根目录
+    script_path = Path(__file__).resolve()
+    project_root = script_path.parent.parent.parent.resolve()
     
     parser = argparse.ArgumentParser(description="格式化转录组数据为pFBA参数")
     parser.add_argument("--input", required=True, help="输入转录组数据文件路径")
@@ -97,11 +108,34 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    # 设置日志
-    logging.basicConfig(level=logging.INFO)
+    # 处理相对路径
+    input_path = args.input
+    output_path = args.output
     
-    # 读取数据
-    expression_data = pd.read_csv(args.input, sep='\t', index_col=0)
+    # 如果不是绝对路径，则转换为相对于项目根目录的路径
+    if not os.path.isabs(input_path):
+        input_path = os.path.join(project_root, input_path)
     
-    # 格式化参数
-    format_pfba_parameters(expression_data, args.threshold, args.output) 
+    if not os.path.isabs(output_path):
+        output_path = os.path.join(project_root, output_path)
+    
+    logger.info(f"输入文件路径: {input_path}")
+    logger.info(f"输出文件路径: {output_path}")
+    
+    # 检查输入文件是否存在
+    if not os.path.exists(input_path):
+        logger.error(f"输入文件不存在: {input_path}")
+        sys.exit(1)
+        
+    try:
+        # 读取数据
+        expression_data = pd.read_csv(input_path, sep='\t', index_col=0)
+        logger.info(f"成功读取数据: {expression_data.shape[0]}行 × {expression_data.shape[1]}列")
+        
+        # 格式化参数
+        format_pfba_parameters(expression_data, args.threshold, output_path)
+        logger.info("参数格式化完成")
+        
+    except Exception as e:
+        logger.error(f"处理过程中出错: {str(e)}", exc_info=True)
+        sys.exit(1) 

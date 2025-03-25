@@ -1,0 +1,22 @@
+2025-03-14 09:54:38,151 - transcriptomics_pfba - INFO - 开始转录组数据处理与pFBA分析
+2025-03-14 09:54:38,151 - transcriptomics_pfba - INFO - 从 OmicsQc2/processed/test11_output.tsv 收集转录组数据，类型: local
+2025-03-14 09:54:38,171 - transcriptomics_pfba - INFO - 成功收集数据: 100行 × 5列
+2025-03-14 09:54:38,179 - transcriptomics_pfba - INFO - 进行数据标准化
+2025-03-14 09:54:38,180 - transcriptomics_pfba - INFO - 预处理完成，转录组数据保存到: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\processed\test11_out_processed.tsv
+2025-03-14 09:54:38,180 - transcriptomics_pfba - INFO - 将转录组数据格式化为pFBA参数
+2025-03-14 09:54:38,180 - transcriptomics_pfba - INFO - pFBA参数已保存至: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\models\pfba\data\test11_out_params.json
+2025-03-14 09:54:38,180 - transcriptomics_pfba - INFO - 运行pFBA模型
+2025-03-14 09:54:38,194 - transcriptomics_pfba - INFO - pFBA模拟完成，结果保存至: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\outputs\test11_out_results.json
+2025-03-14 09:54:38,199 - transcriptomics_pfba - INFO - 前10个最大通量反应:
+2025-03-14 09:54:38,199 - transcriptomics_pfba - INFO -   R74: -2.6197
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R79: -1.9876
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R37: -1.9597
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R13: -1.9133
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R31: 1.8523
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R49: -1.7630
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R14: -1.7249
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R6: 1.5792
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R73: 1.5646
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO -   R71: 1.5380
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO - 目标函数值: 0.0
+2025-03-14 09:54:38,201 - transcriptomics_pfba - INFO - 转录组数据处理与pFBA分析流程完成

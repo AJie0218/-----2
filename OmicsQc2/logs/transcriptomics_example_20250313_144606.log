@@ -1,0 +1,27 @@
+2025-03-13 14:46:06,199 - transcriptomics_example - INFO - 开始转录组数据收集与预处理
+2025-03-13 14:46:06,200 - transcriptomics_example - INFO - 从 test 收集转录组数据，类型: geo
+2025-03-13 14:46:06,217 - transcriptomics_example - INFO - 成功收集数据: 100行 × 5列
+2025-03-13 14:46:06,235 - transcriptomics_example - INFO - 数据预览:
+           Sample1    Sample2    Sample3    Sample4    Sample5
+GENE000  12.142530   6.434896  14.121360  33.886946   5.846520
+GENE001   5.846616  35.845313  15.917748   4.620605  12.712173
+GENE002   4.648675   4.637940   9.411782   1.090591   1.316639
+GENE003   4.211052   2.683626  10.117305   2.980157   1.799837
+GENE004  31.997212   5.895703   7.905259   1.777578   4.287129
+2025-03-13 14:46:06,235 - transcriptomics_example - INFO - 填充缺失值
+2025-03-13 14:46:06,235 - transcriptomics_example - INFO - 进行数据标准化
+2025-03-13 14:46:06,282 - transcriptomics_example - INFO - 标准化完成
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO - 预处理完成，结果保存到: D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\processed\test1.tsv
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO - 处理后数据预览:
+          Sample1   Sample2   Sample3   Sample4   Sample5
+GENE000  0.098372 -0.504611  0.331018  0.979351 -0.246966
+GENE001 -0.391622  1.990128  0.495066 -0.460875 -0.062140
+GENE002 -0.484854 -0.657038 -0.099065 -0.634590 -0.368912
+GENE003 -0.518913 -0.822813 -0.034636 -0.541603 -0.355904
+GENE004  1.643608 -0.550348 -0.236642 -0.600783 -0.288946
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO - 数据处理统计:
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO -   原始数据大小: (100, 5)
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO -   处理后数据大小: (100, 5)
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO -   缺失值填充: 已完成
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO -   数据标准化: 已完成
+2025-03-13 14:46:06,284 - transcriptomics_example - INFO - 转录组数据收集与预处理流程完成

@@ -1,0 +1,23 @@
+2025-03-14 09:54:03,201 - transcriptomics_pfba - INFO - 开始转录组数据处理与pFBA分析
+2025-03-14 09:54:03,206 - transcriptomics_pfba - INFO - 从 OmicsQc2/processed/test11_out.tsv 收集转录组数据，类型: local
+2025-03-14 09:54:03,216 - transcriptomics_pfba - ERROR - 处理过程中发生错误: File b'OmicsQc2/processed/test11_out.tsv' does not exist
+Traceback (most recent call last):
+  File "OmicsQc2/src/examples/process_transcriptomics_for_pfba.py", line 74, in main
+    source_type=args.source_type
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 66, in collect_transcriptomics
+    data = self._collect_from_local(source_path)
+  File "D:\学习软件\pycharm\pyCharm-数据\设计成品\一键化格式2\OmicsQc2\src\preprocessing\data_collector.py", line 136, in _collect_from_local
+    df = pd.read_csv(file_path, sep=sep, encoding=encoding)
+  File "D:\Anaconda\lib\site-packages\pandas\io\parsers.py", line 678, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "D:\Anaconda\lib\site-packages\pandas\io\parsers.py", line 440, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "D:\Anaconda\lib\site-packages\pandas\io\parsers.py", line 787, in __init__
+    self._make_engine(self.engine)
+  File "D:\Anaconda\lib\site-packages\pandas\io\parsers.py", line 1014, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "D:\Anaconda\lib\site-packages\pandas\io\parsers.py", line 1708, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas\_libs\parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas\_libs\parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: File b'OmicsQc2/processed/test11_out.tsv' does not exist

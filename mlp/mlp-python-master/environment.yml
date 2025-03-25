@@ -1,0 +1,17 @@
+name: metabolic-mlp
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - cobra>=0.22.0
+  - numpy>=1.19.0
+  - pandas>=1.2.0
+  - matplotlib>=3.3.0
+  - seaborn>=0.11.0
+  - scikit-learn>=0.24.0
+  - scipy>=1.6.0
+  - pip
+  - pip:
+    - optlang>=1.5.0 
